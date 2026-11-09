@@ -47,5 +47,31 @@ return {
         format = "bcd",
         endian = "little",
         multiplier = 10
+    },
+    rockrage = {
+        address = 0x48B2,
+        length = 3,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
+    spatter = {
+        address = 0xc005,
+        length = 3,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
+    contra = {
+        address = 0x107c,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    lresort = {
+        address = 0x108018,
+        length = 4,
+        format = "bcd",
+        endian = "little"
     },    
 }
