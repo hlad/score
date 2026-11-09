@@ -73,5 +73,18 @@ return {
         length = 4,
         format = "bcd",
         endian = "little"
-    },    
+    },
+    viostorm = {
+        address = 0x200810,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    vandyke = {
+        address = 0xf00bb,
+        length = 3,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
 }
