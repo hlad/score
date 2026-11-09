@@ -87,4 +87,18 @@ return {
         endian = "little",
         multiplier = 10
     },
+    secretag = {
+        address = 0x30536e,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    rthunder = {
+        device = ":cpu1",
+        address = 0x5454,
+        length = 3,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
 }
