@@ -44,10 +44,10 @@ local function get_score(romname, start, length, format, endian, multiplier)
 		i_start = start
 		i_end = start + length -1
 		increment = 1
-	end		
+	end
 
 	for i = i_start, i_end, increment
-	do		
+	do
 		score_val = score_val + (byte_to_bcd(mem:read_u8(i)) *(100^x) | 0)		
 		x = x + 1
 	end
@@ -65,10 +65,12 @@ function score.startplugin()
 	reset_subscription = emu.add_machine_reset_notifier(function ()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
-		if romname~="___empty" then			
+		if romname~="___empty" then
+			device = scores()[romname].device == nil and ":maincpu" or scores()[romname].device
+			space = scores()[romname].space == nil and "program" or scores()[romname].space
 			score_val = 0
-			cpu = manager.machine.devices[":maincpu"]
-			mem = cpu.spaces["program"]
+			cpu = manager.machine.devices[device]
+			mem = cpu.spaces[space]
 		end
 	end)
 
