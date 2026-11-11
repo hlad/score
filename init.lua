@@ -37,7 +37,7 @@ local function get_score(romname, start, length, format, endian, multiplier)
 	local score_val = 0
 
 	local x = 0
-	
+
 	if endian == "little" then
 		i_start = start + length -1
 		i_end = start
@@ -70,7 +70,7 @@ function score.startplugin()
 	reset_subscription = emu.add_machine_reset_notifier(function ()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
-		if romname~="___empty" then
+		if romname~="___empty" and scores()[romname]~=nil then
 			device = scores()[romname].device == nil and ":maincpu" or scores()[romname].device
 			space = scores()[romname].space == nil and "program" or scores()[romname].space
 			score_val = 0
@@ -92,7 +92,7 @@ function score.startplugin()
 	frame = emu.add_machine_frame_notifier(function()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
-		if romname~="___empty" then			
+		if romname~="___empty" then
 			local ok, err = pcall(function()
 				local address = scores()[romname].address
 				local length = scores()[romname].length
@@ -105,7 +105,7 @@ function score.startplugin()
 				if menu.get_print_every_frame() then
 					emu.print_info(string.format('MAME_SCORE: {"game":"%s","score":%d}', romname, score_val))
 				end
-			end)			
+			end)
 		end
 	end)
 
