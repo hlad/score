@@ -16,6 +16,8 @@ local score_val = 0
 
 local cpu, mem
 
+local menu
+
 function score.set_folder(path)
     plugin_path = path
 end
@@ -59,7 +61,10 @@ local function get_score(romname, start, length, format, endian, multiplier)
 	return score_val * multiplier
 end
 
-function score.startplugin()	
+function score.startplugin()
+	menu = dofile(plugin_path .. "/menu.lua")
+	menu.start()
+
 	scores, err = loadfile(plugin_path .. "/scores.lua")		
 
 	reset_subscription = emu.add_machine_reset_notifier(function ()
@@ -96,6 +101,10 @@ function score.startplugin()
 				local multiplier = scores()[romname].multiplier
 
 				score_val = get_score(romname, address, length, format, endian, multiplier)	
+
+				if menu.get_print_every_frame() then
+					emu.print_info(string.format('MAME_SCORE: {"game":"%s","score":%d}', romname, score_val))
+				end
 			end)			
 		end
 	end)
