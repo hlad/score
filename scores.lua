@@ -101,4 +101,29 @@ return {
         endian = "little",
         multiplier = 10
     },
+    secretag = {
+        address = 0x30536e,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    dbreed = {
+        address = 0x88966,
+        length = 3,
+        format = "bcd",
+        endian = "big",
+        multiplier = 100
+    },
+    rtype = {
+        address = 0x42f34,
+        length = 4,
+        format = "bcd",
+        endian = "big"
+    },
+    moomesa = {
+        address = 0x180942,
+        length = 2,
+        format = "bin",
+        endian = "little"
+    },
 }
