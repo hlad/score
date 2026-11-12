@@ -126,4 +126,36 @@ return {
         format = "bin",
         endian = "little"
     },
+    contcirc = {
+        address = 0x8457e,
+        length = 4,
+        format = "bin",
+        endian = "little",
+        multiplier = 100
+    },
+    mrdrillr = {
+        address = 0x21d5f4,
+        length = 4,
+        format = "bin",
+        endian = "big"
+    },
+    qbert = {
+        address = 0xf00be,
+        length = 2,
+        format = "bin",
+        endian = "big"
+    },
+    dkong = {
+        address = 0x60b2,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    asteroid = {
+        address = 0x8052,
+        length = 2,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
 }
