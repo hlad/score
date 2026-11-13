@@ -201,4 +201,35 @@ return {
         endian = "big",
         multiplier = 10
     },
+    wow = {
+        address = 0xd31d,
+        length = 2,
+        format = "bcd",
+        endian = "big",
+        multiplier = 100
+    },
+    cninja = {
+        address = 0x184da3,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    elevator = {
+        address = 0x834d,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
+    skylancr = {
+        address = 0x8023,
+        length = 6,
+        format = "digits",
+        endian = "little"
+    },
+    galaga = {
+        address = 0x83f8,
+        length = 6,
+        format = "digits",
+        endian = "big"
+    },
 }
