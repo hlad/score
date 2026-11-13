@@ -54,7 +54,7 @@ local function get_score(romname, start, length, format, endian, multiplier)
 
 	for i = i_start, i_end, increment
 	do
-		if format ==" bcd" then
+		if format == "bcd" then
 			score_val = score_val + (byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
 		end
 		if format == "bin" then
