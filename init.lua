@@ -31,6 +31,10 @@ local function byte_to_bcd(value)
     return high * 10 + low
 end
 
+local function byte_to_digit(value)
+	return value ~= 0x24 and value % 16 or 0 -- Galaga has 0x24 instead of 0x00
+end
+
 local function get_score(romname, start, length, format, endian, multiplier)
 	local i_start, i_end, increment
 
@@ -50,11 +54,14 @@ local function get_score(romname, start, length, format, endian, multiplier)
 
 	for i = i_start, i_end, increment
 	do
-		if format=="bcd" then
-			score_val = score_val + (byte_to_bcd(mem:read_u8(i)) *(100^x) | 0)
+		if format ==" bcd" then
+			score_val = score_val + (byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
 		end
-		if format=="bin" then
-			score_val = score_val + (mem:read_u8(i) *(256^x) | 0)
+		if format == "bin" then
+			score_val = score_val + (mem:read_u8(i) * (256^x) | 0)
+		end
+		if format == "digits" then
+			score_val = score_val + (byte_to_digit(mem:read_u8(i)) * (10^x) | 0)
 		end
 		x = x + 1
 	end
@@ -70,7 +77,7 @@ function score.startplugin()
 	menu = dofile(plugin_path .. "/menu.lua")
 	menu.start()
 
-	scores, err = loadfile(plugin_path .. "/scores.lua")		
+	scores, err = loadfile(plugin_path .. "/scores.lua")
 
 	reset_subscription = emu.add_machine_reset_notifier(function ()
 		local romname = emu.romname()
