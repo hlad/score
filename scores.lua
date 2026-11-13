@@ -158,4 +158,47 @@ return {
         endian = "big",
         multiplier = 10
     },
+    ["1941"] = {
+        address = 0xff0db6,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    bombjack = {
+        address = 0x819c,
+        length = 4,
+        format = "bcd",
+        endian = "big"
+    },
+    galaxian = {
+        address = 0x40a2,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
+    pacman = {
+        address = 0x4e80,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
+    mspacman = {
+        address = 0x4e80,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
+    ddragon = {
+        address = 0x3eB,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    frogger = {
+        address = 0x83ed,
+        length = 2,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
 }
