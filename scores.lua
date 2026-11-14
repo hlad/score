@@ -232,4 +232,10 @@ return {
         format = "digits",
         endian = "big"
     },
+    choplift = {
+        address = 0xc020,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
 }
