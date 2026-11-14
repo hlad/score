@@ -14,6 +14,8 @@ local scores = {}
 
 local score_val = 0
 
+local last_printed_score = nil
+
 local cpu, mem
 
 local menu
@@ -114,13 +116,23 @@ function score.startplugin()
 
 				score_val = get_score(romname, address, length, format, endian, multiplier)	
 
-				if menu.get_print_every_frame() then
-					emu.print_info(string.format('MAME_SCORE: {"game":"%s","score":%d}', romname, score_val))
+				local mode = menu.get_print_mode()
+
+				if mode == "frame" then
+					emu.print_info(string.format(
+						'MAME_SCORE: {"game":"%s","score":%d}',
+						romname, score_val
+					))
+				elseif mode == "change" and score_val ~= last_printed_score then
+					emu.print_info(string.format(
+						'MAME_SCORE: {"game":"%s","score":%d}',
+						romname, score_val
+					))
+					last_printed_score = score_val
 				end
 			end)
 		end
 	end)
-
 end
 
 return exports

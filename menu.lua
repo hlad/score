@@ -1,7 +1,19 @@
 -- Score plugin menu and persistent settings (MAME 0.281)
 local menu = {}
-local print_every_frame = false
+local print_mode = "exit"
 local config_dir
+
+local modes = {
+    "exit",
+    "frame",
+    "change"
+}
+
+local mode_names = {
+    exit = "On exit",
+    frame = "Every frame",
+    change = "On score change"
+}
 
 local function load_settings()
     local home = manager.options.entries.homepath:value():match("([^;]+)")    
@@ -10,8 +22,12 @@ local function load_settings()
     if file then
         local settings = require("json").parse(file:read("a"))
         file:close()
-        if settings and settings.print_every_frame ~= nil then
-            print_every_frame = settings.print_every_frame and true or false
+        if settings then
+            if settings.print_mode then
+                print_mode = settings.print_mode
+            elseif settings.print_every_frame then
+                print_mode = "frame"
+            end
         end
     end
 end
@@ -29,33 +45,49 @@ local function save_settings()
         emu.print_error("Score plugin: cannot write plugin.cfg")
         return
     end
-    file:write(require("json").stringify({ print_every_frame = print_every_frame }, { indent = true }))
+    file:write(require("json").stringify(
+        { print_mode = print_mode },
+        { indent = true }
+    ))
     file:close()
 end
 
-function menu.get_print_every_frame()
-    return print_every_frame
+function menu.get_print_mode()
+    return print_mode
 end
 
 function menu.start()
     load_settings()
     local function populate()
-        local mode = print_every_frame and "Every frame" or "On exit"
         return {
             { "Score output options", "", "off" },
             { "---", "", "off" },
-            { "Print result", mode, "lr" }
+            { "Print result", mode_names[print_mode], "lr" }
         }
     end
     local function callback(index, event)
         if index ~= 3 then return false end
-        if event == "left" or event == "right" or event == "select" then
-            print_every_frame = not print_every_frame
+
+        if event == "left" or event == "right"
+            or event == "select" then
+
+            local current = 1
+            for i, mode in ipairs(modes) do
+                if mode == print_mode then
+                    current = i
+                    break
+                end
+            end
+
+            current = current % #modes + 1
+            print_mode = modes[current]
+
             save_settings()
             return true
         end
         return false
     end
+
     emu.register_menu(callback, populate, "Score")
 end
 
