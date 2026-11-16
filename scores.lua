@@ -311,4 +311,82 @@ return {
         format = "bcd",
         endian = "big"
     },
+    toki = {
+        address = 0x60000,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    vanguard = {
+        address = 0x1f,
+        length = 3,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
+    satansat = {
+        address = 0x20,
+        length = 2,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
+    shinobi = {
+        address = 0xc71740,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    kicker = {
+        address = 0x2a82,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    bmaster = {
+        address = 0xe74f6,
+        length = 3,
+        format = "bin",
+        endian = "big",
+        multiplier = 100
+    },
+    kangaroo = {
+        address = 0xe064,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    mappy = {
+        address = 0x2037,
+        length = 2,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
+    ripribit = {
+        address = 0x39e820,
+        length = 2,
+        format = "bin",
+        endian = "little"
+    },
+    porky = {
+        address = 0x1d69,
+        length = 3,
+        format = "bcd",
+        endian = "little",
+        multiplier = 10
+    },
+    dkongjr = {
+        address = 0x60b2,
+        length = 3,
+        format = "bcd",
+        endian = "big",
+    },
+    bublbobl = {
+        address = 0xe641,
+        length = 3,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
 }
