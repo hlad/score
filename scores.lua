@@ -238,4 +238,77 @@ return {
         format = "bcd",
         endian = "big"
     },
+    ironhors = {
+        address = 0x3275,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    asteroid = {
+        address = 0x52,
+        length = 2,
+        format = "bcd",
+        endian = "big",
+        multiplier = 10
+    },
+    invaders = {
+        address = 0x20f8,
+        length = 2,
+        format = "bcd",
+        endian = "big"
+    },
+    opwolf = {
+        address = 0x10096c,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    mslug = {
+        address = 0x1081b6,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    tmnt = {
+        address = 0x60104,
+        length = 2,
+        format = "bcd",
+        endian = "little"
+    },
+    mwalk = {
+        address = 0xffda40,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    cosmica = {
+        address = 0x4005,
+        length = 3,
+        format = "bcd",
+        endian = "little"
+    },
+    dino = {
+        address = 0xffb384,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    gng = {
+        address = 0x68,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    bagman = {
+        address = 0x6176,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
+    btime = {
+        address = 0x2d,
+        length = 3,
+        format = "bcd",
+        endian = "big"
+    },
 }
