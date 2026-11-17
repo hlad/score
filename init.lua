@@ -37,21 +37,33 @@ local function byte_to_digit(value)
 	return value ~= 0x24 and value % 16 or 0 -- Galaga has 0x24 instead of 0x00
 end
 
-local function get_score(romname, start, length, format, endian, multiplier)
+local function get_score(romname, start, length, format, endian, multiplier, addressing)
 	local i_start, i_end, increment
 
 	local score_val = 0
 
 	local x = 0
 
-	if endian == "little" then
-		i_start = start + length -1
-		i_end = start
-		increment = -1
+	if addressing == "bit" then
+		if endian == "little" then
+			i_start = start + (length -1) * 8
+			i_end = start
+			increment = -8
+		else
+			i_start = start
+			i_end = start + (length -1) * 8
+			increment = 8
+		end
 	else
-		i_start = start
-		i_end = start + length -1
-		increment = 1
+		if endian == "little" then
+			i_start = start + length -1
+			i_end = start
+			increment = -1
+		else
+			i_start = start
+			i_end = start + length -1
+			increment = 1
+		end
 	end
 
 	for i = i_start, i_end, increment
@@ -113,8 +125,9 @@ function score.startplugin()
 				local format = scores()[romname].format
 				local endian = scores()[romname].endian
 				local multiplier = scores()[romname].multiplier
+				local addressing = scores()[romname].addressing
 
-				score_val = get_score(romname, address, length, format, endian, multiplier)	
+				score_val = get_score(romname, address, length, format, endian, multiplier, addressing)
 
 				local mode = menu.get_print_mode()
 
