@@ -389,4 +389,17 @@ return {
         endian = "big",
         multiplier = 10
     },
+    joust = {
+        address = 0xa04c,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    mk = {
+        address = 0x10512a0,
+        length = 8,
+        format = "digits",
+        endian = "little",
+        addressing = "bit"
+    },
 }
