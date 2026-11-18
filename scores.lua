@@ -101,12 +101,6 @@ return {
         endian = "little",
         multiplier = 10
     },
-    secretag = {
-        address = 0x30536e,
-        length = 4,
-        format = "bcd",
-        endian = "little"
-    },
     dbreed = {
         address = 0x88966,
         length = 3,
