@@ -402,4 +402,16 @@ return {
         endian = "little",
         addressing = "bit"
     },
+    sf2 = {
+        address = 0xff8660,
+        length = 4,
+        format = "bcd",
+        endian = "little"
+    },
+    sf = {
+        address = 0xff86d2,
+        length = 8,
+        format = "digits",
+        endian = "little"
+    },
 }
