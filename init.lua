@@ -120,12 +120,12 @@ function score.startplugin()
 		local gamename = emu.gamename()
 		if romname~="___empty" then
 			local ok, err = pcall(function()
-				local address = scores()[romname].address
-				local length = scores()[romname].length
-				local format = scores()[romname].format
-				local endian = scores()[romname].endian
-				local multiplier = scores()[romname].multiplier
-				local addressing = scores()[romname].addressing
+				local address = scores()[romname].score.address
+				local length = scores()[romname].score.length
+				local format = scores()[romname].score.format
+				local endian = scores()[romname].score.endian
+				local multiplier = scores()[romname].score.multiplier
+				local addressing = scores()[romname].score.addressing
 
 				score_val = get_score(romname, address, length, format, endian, multiplier, addressing)
 
