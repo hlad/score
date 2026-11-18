@@ -244,13 +244,6 @@ return {
         format = "bcd",
         endian = "little"
     },
-    asteroid = {
-        address = 0x52,
-        length = 2,
-        format = "bcd",
-        endian = "big",
-        multiplier = 10
-    },
     invaders = {
         address = 0x20f8,
         length = 2,
