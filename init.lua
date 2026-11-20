@@ -12,13 +12,14 @@ local plugin_path = ""
 
 local scores = {}
 
-local score_val = 0
-
-local last_printed_score = nil
+local values = {}
+local values_last = {}
 
 local cpu, mem
 
 local menu
+
+local fields = {"score", "lives"}
 
 function score.set_folder(path)
     plugin_path = path
@@ -37,10 +38,42 @@ local function byte_to_digit(value)
 	return value ~= 0x24 and value % 16 or 0 -- Galaga has 0x24 instead of 0x00
 end
 
-local function get_score(romname, start, length, format, endian, multiplier, addressing)
+local function print_result(romname, values)
+	local output = string.format('MAME_SCORE: {"game":"%s"', romname)
+
+	local values_json = ""
+
+	for _, field in ipairs(fields) do
+			if values[field] ~= nil then
+				values_json = values_json .. string.format(',"%s":"%s"', field, values[field])
+			end
+	end
+
+	output = output .. values_json .. "}"
+
+	emu.print_info(output)
+end
+
+local function table_equal(a, b)
+    for k, v in pairs(a) do
+        if b[k] ~= v then
+            return false
+        end
+    end
+
+    for k in pairs(b) do
+        if a[k] == nil then
+            return false
+        end
+    end
+
+    return true
+end
+
+local function get_value(start, length, format, endian, multiplier, addressing)
 	local i_start, i_end, increment
 
-	local score_val = 0
+	local value = 0
 
 	local x = 0
 
@@ -69,13 +102,13 @@ local function get_score(romname, start, length, format, endian, multiplier, add
 	for i = i_start, i_end, increment
 	do
 		if format == "bcd" then
-			score_val = score_val + (byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
+			value = value + (byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
 		end
 		if format == "bin" then
-			score_val = score_val + (mem:read_u8(i) * (256^x) | 0)
+			value = value + (mem:read_u8(i) * (256^x) | 0)
 		end
 		if format == "digits" then
-			score_val = score_val + (byte_to_digit(mem:read_u8(i)) * (10^x) | 0)
+			value = value + (byte_to_digit(mem:read_u8(i)) * (10^x) | 0)
 		end
 		x = x + 1
 	end
@@ -84,7 +117,7 @@ local function get_score(romname, start, length, format, endian, multiplier, add
 		multiplier=1
 	end
 
-	return score_val * multiplier
+	return value * multiplier
 end
 
 function score.startplugin()
@@ -99,7 +132,6 @@ function score.startplugin()
 		if romname~="___empty" and scores()[romname]~=nil then
 			device = scores()[romname].device == nil and ":maincpu" or scores()[romname].device
 			space = scores()[romname].space == nil and "program" or scores()[romname].space
-			score_val = 0
 			cpu = manager.machine.devices[device]
 			mem = cpu.spaces[space]
 		end
@@ -109,9 +141,7 @@ function score.startplugin()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
 		if romname~="___empty" then        				
-			emu.print_info(string.format(
-				'MAME_SCORE: {"game":"%s","score":%d}',				
-			romname, score_val))
+			print_result(romname, values)
 		end
     end)
 
@@ -120,28 +150,27 @@ function score.startplugin()
 		local gamename = emu.gamename()
 		if romname~="___empty" then
 			local ok, err = pcall(function()
-				local address = scores()[romname].score.address
-				local length = scores()[romname].score.length
-				local format = scores()[romname].score.format
-				local endian = scores()[romname].score.endian
-				local multiplier = scores()[romname].score.multiplier
-				local addressing = scores()[romname].score.addressing
+				values = {}
+				for _, field in ipairs(fields) do
+					if scores()[romname][field] ~= nil then
+						local address = scores()[romname][field].address
+						local length = scores()[romname][field].length
+						local format = scores()[romname][field].format
+						local endian = scores()[romname][field].endian
+						local multiplier = scores()[romname][field].multiplier
+						local addressing = scores()[romname][field].addressing
 
-				score_val = get_score(romname, address, length, format, endian, multiplier, addressing)
+						values[field] = get_value(address, length, format, endian, multiplier, addressing)
+					end
+				end
 
 				local mode = menu.get_print_mode()
-
+				
 				if mode == "frame" then
-					emu.print_info(string.format(
-						'MAME_SCORE: {"game":"%s","score":%d}',
-						romname, score_val
-					))
-				elseif mode == "change" and score_val ~= last_printed_score then
-					emu.print_info(string.format(
-						'MAME_SCORE: {"game":"%s","score":%d}',
-						romname, score_val
-					))
-					last_printed_score = score_val
+					print_result(romname, values)
+				elseif mode == "change" and table_equal(values, values_last) == false then
+					print_result(romname, values)
+					values_last = values
 				end
 			end)
 		end
