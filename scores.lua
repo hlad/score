@@ -72,6 +72,12 @@ return
                 format = "bcd",
                 endian = "little",
                 multiplier = 10
+            },
+            lives = {
+                address = 0x48e0,
+                length = 1,
+                format = "bcd",
+                endian = "little"
             }
         },
         spatter = {
@@ -87,6 +93,12 @@ return
             score = {
                 address = 0x107c,
                 length = 4,
+                format = "bcd",
+                endian = "little"
+            },
+            lives = {
+                address = 0x1081,
+                length = 1,
                 format = "bcd",
                 endian = "little"
             }
@@ -141,7 +153,13 @@ return
                 format = "bcd",
                 endian = "big",
                 multiplier = 100
-            }
+            },
+            lives = {
+                address = 0x88958,
+                length = 1,
+                format = "bcd",
+                endian = "big"
+            },
         },
         rtype = {
             score = {
@@ -265,6 +283,12 @@ return
                 format = "bcd",
                 endian = "big",
                 multiplier = 100
+            },
+            lives = {
+                address = 0xd301,
+                length = 1,
+                format = "bcd",
+                endian = "little"
             }
         },
         cninja = {
