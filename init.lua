@@ -123,7 +123,7 @@ function score.startplugin()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
 		if romname~="___empty" then
-			-- local ok, err = pcall(function()
+			local ok, err = pcall(function()
 				values = {}
 				for _, field in ipairs(fields) do
 					if scores()[romname][field] ~= nil then
@@ -146,7 +146,7 @@ function score.startplugin()
 					print_result(romname, values)
 					values_last = values
 				end
-			-- end)
+			end)
 		end
 	end)
 end
