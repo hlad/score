@@ -6,6 +6,8 @@ local exports = {
     author = { name = "hlad" }
 }	
 
+local utils
+
 local score = exports
 
 local plugin_path = ""
@@ -25,19 +27,6 @@ function score.set_folder(path)
     plugin_path = path
 end
 
-local function byte_to_bcd(value)
-    local low = value % 16
-    local high = math.floor(value / 16)
-    if low > 9 or high > 9 then
-        return nil
-    end
-    return high * 10 + low
-end
-
-local function byte_to_digit(value)
-	return value ~= 0x24 and value % 16 or 0 -- Galaga has 0x24 instead of 0x00
-end
-
 local function print_result(romname, values)
 	local output = string.format('MAME_SCORE: {"game":"%s"', romname)
 
@@ -52,22 +41,6 @@ local function print_result(romname, values)
 	output = output .. values_json .. "}"
 
 	emu.print_info(output)
-end
-
-local function table_equal(a, b)
-    for k, v in pairs(a) do
-        if b[k] ~= v then
-            return false
-        end
-    end
-
-    for k in pairs(b) do
-        if a[k] == nil then
-            return false
-        end
-    end
-
-    return true
 end
 
 local function get_value(start, length, format, endian, multiplier, addressing)
@@ -102,13 +75,13 @@ local function get_value(start, length, format, endian, multiplier, addressing)
 	for i = i_start, i_end, increment
 	do
 		if format == "bcd" then
-			value = value + (byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
+			value = value + (utils.byte_to_bcd(mem:read_u8(i)) * (100^x) | 0)
 		end
 		if format == "bin" then
 			value = value + (mem:read_u8(i) * (256^x) | 0)
 		end
 		if format == "digits" then
-			value = value + (byte_to_digit(mem:read_u8(i)) * (10^x) | 0)
+			value = value + (utils.byte_to_digit(mem:read_u8(i)) * (10^x) | 0)
 		end
 		x = x + 1
 	end
@@ -121,6 +94,7 @@ local function get_value(start, length, format, endian, multiplier, addressing)
 end
 
 function score.startplugin()
+	utils = dofile(plugin_path .. "/utils.lua")
 	menu = dofile(plugin_path .. "/menu.lua")
 	menu.start()
 
@@ -149,7 +123,7 @@ function score.startplugin()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
 		if romname~="___empty" then
-			local ok, err = pcall(function()
+			-- local ok, err = pcall(function()
 				values = {}
 				for _, field in ipairs(fields) do
 					if scores()[romname][field] ~= nil then
@@ -168,11 +142,11 @@ function score.startplugin()
 				
 				if mode == "frame" then
 					print_result(romname, values)
-				elseif mode == "change" and table_equal(values, values_last) == false then
+				elseif mode == "change" and utils.table_equal(values, values_last) == false then
 					print_result(romname, values)
 					values_last = values
 				end
-			end)
+			-- end)
 		end
 	end)
 end
