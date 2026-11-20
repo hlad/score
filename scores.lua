@@ -553,5 +553,19 @@ return
                 format = "digits",
                 endian = "little"
             }
+        },
+        gyruss = {
+            score = {
+                address = 0x9663,
+                length = 3,
+                format = "bcd",
+                endian = "big"
+            },
+            lives = {
+                address = 0x9600,
+                length = 1,
+                format = "bcd",
+                endian = "big"
+            }
         }
     }
