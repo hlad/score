@@ -98,14 +98,14 @@ function score.startplugin()
 	menu = dofile(plugin_path .. "/menu.lua")
 	menu.start()
 
-	scores, err = loadfile(plugin_path .. "/scores.lua")
+	scores = loadfile(plugin_path .. "/scores.lua")()
 
 	reset_subscription = emu.add_machine_reset_notifier(function ()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
-		if romname~="___empty" and scores()[romname]~=nil then
-			device = scores()[romname].device == nil and ":maincpu" or scores()[romname].device
-			space = scores()[romname].space == nil and "program" or scores()[romname].space
+		if romname~="___empty" and scores[romname]~=nil then
+			device = scores[romname].device == nil and ":maincpu" or scores[romname].device
+			space = scores[romname].space == nil and "program" or scores[romname].space
 			cpu = manager.machine.devices[device]
 			mem = cpu.spaces[space]
 		end
@@ -126,13 +126,13 @@ function score.startplugin()
 			local ok, err = pcall(function()
 				values = {}
 				for _, field in ipairs(fields) do
-					if scores()[romname][field] ~= nil then
-						local address = scores()[romname][field].address
-						local length = scores()[romname][field].length
-						local format = scores()[romname][field].format
-						local endian = scores()[romname][field].endian
-						local multiplier = scores()[romname][field].multiplier
-						local addressing = scores()[romname][field].addressing
+					if scores[romname][field] ~= nil then
+						local address = scores[romname][field].address
+						local length = scores[romname][field].length
+						local format = scores[romname][field].format
+						local endian = scores[romname][field].endian
+						local multiplier = scores[romname][field].multiplier
+						local addressing = scores[romname][field].addressing
 
 						values[field] = get_value(address, length, format, endian, multiplier, addressing)
 					end
