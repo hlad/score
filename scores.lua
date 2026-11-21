@@ -567,5 +567,21 @@ return
                 format = "bcd",
                 endian = "big"
             }
+        },
+        narc = {
+            score = {
+                address = 0x100b6d0,
+                length = 4,
+                format = "bcd",
+                endian = "big",
+                addressing = "bit"
+            },
+            lives = {
+                address = 0x100b7e0,
+                length = 1,
+                format = "bcd",
+                endian = "big",
+                addressing = "bit"
+            }
         }
     }
