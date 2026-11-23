@@ -583,5 +583,33 @@ return
                 endian = "big",
                 addressing = "bit"
             }
+        },
+        mooncrst = {
+            score = {
+                address = 0x8098,
+                length = 3,
+                format = "bcd",
+                endian = "little"
+            },
+            lives = {
+                address = 0x8097,
+                length = 1,
+                format = "bcd",
+                endian = "big"
+            }
+        },
+        ssriders = {
+            score = {
+                address = 0x104286, --P3
+                length = 4,
+                format = "bcd",
+                endian = "little"
+            },
+            lives = {
+                address = 0x104280, --P3
+                length = 1,
+                format = "bin",
+                endian = "little"
+            }
         }
     }
