@@ -15,7 +15,12 @@ end
 
 function utils.table_equal(a, b)
     for k, v in pairs(a) do
-        if b[k] ~= v then
+        if type(v) == "table" then
+            if type(b[k]) ~= "table"
+                or not utils.table_equal(v, b[k]) then
+                return false
+            end
+        elseif b[k] ~= v then
             return false
         end
     end
