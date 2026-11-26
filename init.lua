@@ -23,24 +23,42 @@ local menu
 
 local fields = {"score", "lives"}
 
+local game_config
+
 function score.set_folder(path)
     plugin_path = path
 end
 
-local function print_result(romname, values)
-	local output = string.format('MAME_SCORE: {"game":"%s"', romname)
+local function print_result(romname, players)
+    local output = string.format(
+        'MAME_SCORE: {"game":"%s","players":[',
+        romname
+    )
 
-	local values_json = ""
+    local player_output = {}
 
-	for _, field in ipairs(fields) do
-			if values[field] ~= nil then
-				values_json = values_json .. string.format(',"%s":"%s"', field, values[field])
-			end
-	end
+    for player, values in ipairs(players) do
+        local fields_output = {}
 
-	output = output .. values_json .. "}"
+        for _, field in ipairs(fields) do
+            if values[field] ~= nil then
+                table.insert(fields_output,
+                    string.format('"%s":%d', field, values[field])
+                )
+            end
+        end
 
-	emu.print_info(output)
+        table.insert(player_output,
+            string.format('{"player":%d,%s}',
+                player,
+                table.concat(fields_output, ",")
+            )
+        )
+    end
+
+    output = output .. table.concat(player_output, ",") .. "]}"
+
+    emu.print_info(output)
 end
 
 local function get_value(start, length, format, endian, multiplier, addressing)
@@ -93,6 +111,33 @@ local function get_value(start, length, format, endian, multiplier, addressing)
 	return value * multiplier
 end
 
+local function read_players(game_config)
+    local players = {}
+
+    for player, config in ipairs(game_config.players or {}) do
+        local values = {}
+
+        for _, field in ipairs(fields) do
+            local field_config = config[field]
+
+            if field_config then
+                values[field] = get_value(
+                    field_config.address,
+                    field_config.length,
+                    field_config.format,
+                    field_config.endian,
+                    field_config.multiplier,
+                    field_config.addressing
+                )
+            end
+        end
+
+        players[player] = values
+    end
+
+    return players
+end
+
 function score.startplugin()
 	utils = dofile(plugin_path .. "/utils.lua")
 	menu = dofile(plugin_path .. "/menu.lua")
@@ -104,10 +149,25 @@ function score.startplugin()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
 		if romname~="___empty" and scores[romname]~=nil then
-			device = scores[romname].device == nil and ":maincpu" or scores[romname].device
-			space = scores[romname].space == nil and "program" or scores[romname].space
-			cpu = manager.machine.devices[device]
-			mem = cpu.spaces[space]
+			game_config = scores[romname]
+
+			if game_config then
+				local score_config = game_config.players
+					and game_config.players[1]
+					and game_config.players[1].score
+
+				device = game_config.device
+					or (score_config and score_config.device)
+					or ":maincpu"
+
+				space = game_config.space or "program"
+
+				cpu = manager.machine.devices[device]
+				mem = cpu.spaces[space]
+			end
+
+			values = {}
+			values_last = {}
 		end
 	end)
 
@@ -122,21 +182,9 @@ function score.startplugin()
 	frame = emu.add_machine_frame_notifier(function()
 		local romname = emu.romname()
 		local gamename = emu.gamename()
-		if romname~="___empty" then
+		if romname~="___empty" and game_config ~= nil then
 			local ok, err = pcall(function()
-				values = {}
-				for _, field in ipairs(fields) do
-					if scores[romname][field] ~= nil then
-						local address = scores[romname][field].address
-						local length = scores[romname][field].length
-						local format = scores[romname][field].format
-						local endian = scores[romname][field].endian
-						local multiplier = scores[romname][field].multiplier
-						local addressing = scores[romname][field].addressing
-
-						values[field] = get_value(address, length, format, endian, multiplier, addressing)
-					end
-				end
+				values = read_players(game_config)
 
 				local mode = menu.get_print_mode()
 				

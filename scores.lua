@@ -1,615 +1,929 @@
 return
-    {
-        pooyan = {
-            score = {
-                address = 0x88A2,
-                length = 3,
-                format = "bcd",
-                endian = "big"
+{
+    ["1941"] = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFF0DB6,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             }
-        },
-        rushcrsh = {
-            score = {
-                address = 0x00B8,
-                length = 3,
-                format = "bcd",
-                endian = "little"
+        }
+    },
+    asteroid = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x8052,
+                    endian = "big",
+                    format = "bcd",
+                    length = 2,
+                    multiplier = 10
+                }
             }
-        },
-        mutnat = {
-            score = {
-                address = 0x1000C3,
-                length = 3,
-                format = "bcd",
-                endian = "little"
+        }
+    },
+    bagman = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x6176,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
             }
-        },
-        mpatrolw = {
-            score = {
-                address = 0xE500,
-                length = 3,
-                format = "bcd",
-                endian = "big"
+        }
+    },
+    bmaster = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xE74F6,
+                    endian = "big",
+                    format = "bin",
+                    length = 3,
+                    multiplier = 100
+                }
             }
-        },
-        mpatrol = {
-            score = {
-                address = 0xE500,
-                length = 3,
-                format = "bcd",
-                endian = "big"
+        }
+    },
+    bombjack = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x819C,
+                    endian = "big",
+                    format = "bcd",
+                    length = 4
+                }
             }
-        },
-        turtles = {
-            score = {
-                address = 0x80A8,
-                length = 3,
-                format = "bcd",
-                endian = "big"
+        }
+    },
+    btime = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x2D,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
             }
-        },
-        nemo = {
-            score = {
-                address = 0xFF83A8,
-                length = 4,
-                format = "bcd",
-                endian = "little"
+        }
+    },
+    bublbobl = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xE641,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
             }
-        },
-        nitrobal = {
-            score = {
-                address = 0xFF284C,
-                length = 4,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
+        }
+    },
+    choplift = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xC020,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
             }
-        },
-        rockrage = {
-            score = {
-                address = 0x48B2,
-                length = 3,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
+        }
+    },
+    cninja = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x184DA3,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    contcirc = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x8457E,
+                    endian = "little",
+                    format = "bin",
+                    length = 4,
+                    multiplier = 100
+                }
+            }
+        }
+    },
+    contra = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x1081,
+                    endian = "little",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x107C,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    cosmica = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x4005,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    dbreed = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x88958,
+                    endian = "big",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x88966,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 100
+                }
+            }
+        }
+    },
+    ddragon = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x3EB,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    dino = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFFB384,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    dkong = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x60B2,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    dkongjr = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x60B2,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    elevator = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x834D,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    frogger = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x83ED,
+                    endian = "big",
+                    format = "bcd",
+                    length = 2,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    galaga = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x83F8,
+                    endian = "big",
+                    format = "digits",
+                    length = 6
+                }
+            }
+        }
+    },
+    galaxian = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x40A2,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    gng = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x68,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    gyruss = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x9600,
+                    endian = "big",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x9663,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    invaders = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x20F8,
+                    endian = "big",
+                    format = "bcd",
+                    length = 2
+                }
+            }
+        }
+    },
+    ironhors = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x3275,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    joust = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xA04C,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    kangaroo = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xE064,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    kicker = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x2A82,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    lresort = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x108018,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    mappy = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x2037,
+                    endian = "little",
+                    format = "bcd",
+                    length = 2,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    mk = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x10512A0,
+                    addressing = "bit",
+                    endian = "little",
+                    format = "digits",
+                    length = 8
+                }
+            }
+        }
+    },
+    moomesa = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x180942,
+                    endian = "little",
+                    format = "bin",
+                    length = 2
+                }
+            }
+        }
+    },
+    mooncrst = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x8097,
+                    endian = "big",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x8098,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    mpatrol = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xE500,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    mpatrolw = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xE500,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    mrdrillr = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x21D5F4,
+                    endian = "big",
+                    format = "bin",
+                    length = 4
+                }
+            }
+        }
+    },
+    mslug = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x1081B6,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    mspacman = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x4E80,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    mutnat = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x1000C3,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    mwalk = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFFDA40,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    narc = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x100B7E0,
+                    addressing = "bit",
+                    endian = "big",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x100B6D0,
+                    addressing = "bit",
+                    endian = "big",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    nemo = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFF83A8,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    nitrobal = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFF284C,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    opwolf = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x10096C,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    pacman = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x4E80,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    pooyan = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x88A2,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    porky = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x1D69,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    qbert = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xF00BE,
+                    endian = "big",
+                    format = "bin",
+                    length = 2
+                }
+            }
+        }
+    },
+    ripribit = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x39E820,
+                    endian = "little",
+                    format = "bin",
+                    length = 2
+                }
+            }
+        }
+    },
+    rockrage = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x48E0,
+                    endian = "little",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0x48B2,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    rthunder = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x5454,
+                    device = ":cpu1",
+                    endian = "little",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    rtype = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x42F34,
+                    endian = "big",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    rushcrsh = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xB8,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3
+                }
+            }
+        }
+    },
+    satansat = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x20,
+                    endian = "big",
+                    format = "bcd",
+                    length = 2,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    secretag = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x30536E,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    sf = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFF86D2,
+                    endian = "little",
+                    format = "digits",
+                    length = 8
+                }
+            }
+        }
+    },
+    sf2 = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xFF8660,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    shinobi = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xC71740,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
+            }
+        }
+    },
+    skylancr = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x8023,
+                    endian = "little",
+                    format = "digits",
+                    length = 6
+                }
+            }
+        }
+    },
+    spatter = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xC005,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
+            }
+        }
+    },
+    ssriders = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0x104200,
+                    endian = "little",
+                    format = "bin",
+                    length = 1
+                },
+                score = {
+                    address = 0x104206,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             },
-            lives = {
-                address = 0x48e0,
-                length = 1,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        spatter = {
-            score = {
-                address = 0xc005,
-                length = 3,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
-            }
-        },
-        contra = {
-            score = {
-                address = 0x107c,
-                length = 4,
-                format = "bcd",
-                endian = "little"
+            [2] = {
+                lives = {
+                    address = 0x104240,
+                    endian = "little",
+                    format = "bin",
+                    length = 1
+                },
+                score = {
+                    address = 0x104246,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             },
-            lives = {
-                address = 0x1081,
-                length = 1,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        lresort = {
-            score = {
-                address = 0x108018,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        viostorm = {
-            score = {
-                address = 0x200810,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        vandyke = {
-            score = {
-                address = 0xf00bb,
-                length = 3,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
-            }
-        },
-        secretag = {
-            score = {
-                address = 0x30536e,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        rthunder = {
-            score = {
-                device = ":cpu1",
-                address = 0x5454,
-                length = 3,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
-            }
-        },
-        dbreed = {
-            score = {
-                address = 0x88966,
-                length = 3,
-                format = "bcd",
-                endian = "big",
-                multiplier = 100
+            [3] = {
+                lives = {
+                    address = 0x104280,
+                    endian = "little",
+                    format = "bin",
+                    length = 1
+                },
+                score = {
+                    address = 0x104286,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             },
-            lives = {
-                address = 0x88958,
-                length = 1,
-                format = "bcd",
-                endian = "big"
-            },
-        },
-        rtype = {
-            score = {
-                address = 0x42f34,
-                length = 4,
-                format = "bcd",
-                endian = "big"
+            [4] = {
+                lives = {
+                    address = 0x1042c0,
+                    endian = "little",
+                    format = "bin",
+                    length = 1
+                },
+                score = {
+                    address = 0x1042c6,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             }
-        },
-        moomesa = {
-            score = {
-                address = 0x180942,
-                length = 2,
-                format = "bin",
-                endian = "little"
+        }
+    },
+    tmnt = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x60104,
+                    endian = "little",
+                    format = "bcd",
+                    length = 2
+                }
             }
-        },
-        contcirc = {
-            score = {
-                address = 0x8457e,
-                length = 4,
-                format = "bin",
-                endian = "little",
-                multiplier = 100
+        }
+    },
+    toki = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x60000,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             }
-        },
-        mrdrillr = {
-            score = {
-                address = 0x21d5f4,
-                length = 4,
-                format = "bin",
-                endian = "big"
+        }
+    },
+    turtles = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x80A8,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3
+                }
             }
-        },
-        qbert = {
-            score = {
-                address = 0xf00be,
-                length = 2,
-                format = "bin",
-                endian = "big"
+        }
+    },
+    vandyke = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0xF00BB,
+                    endian = "little",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
             }
-        },
-        dkong = {
-            score = {
-                address = 0x60b2,
-                length = 3,
-                format = "bcd",
-                endian = "little"
+        }
+    },
+    vanguard = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x1F,
+                    endian = "big",
+                    format = "bcd",
+                    length = 3,
+                    multiplier = 10
+                }
             }
-        },
-        asteroid = {
-            score = {
-                address = 0x8052,
-                length = 2,
-                format = "bcd",
-                endian = "big",
-                multiplier = 10
+        }
+    },
+    viostorm = {
+        players = {
+            [1] = {
+                score = {
+                    address = 0x200810,
+                    endian = "little",
+                    format = "bcd",
+                    length = 4
+                }
             }
-        },
-        ["1941"] = {
-            score = {
-                address = 0xff0db6,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        bombjack = {
-            score = {
-                address = 0x819c,
-                length = 4,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        galaxian = {
-            score = {
-                address = 0x40a2,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        pacman = {
-            score = {
-                address = 0x4e80,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        mspacman = {
-            score = {
-                address = 0x4e80,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        ddragon = {
-            score = {
-                address = 0x3eB,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        frogger = {
-            score = {
-                address = 0x83ed,
-                length = 2,
-                format = "bcd",
-                endian = "big",
-                multiplier = 10
-            }
-        },
-        wow = {
-            score = {
-                address = 0xd31d,
-                length = 2,
-                format = "bcd",
-                endian = "big",
-                multiplier = 100
-            },
-            lives = {
-                address = 0xd301,
-                length = 1,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        cninja = {
-            score = {
-                address = 0x184da3,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        elevator = {
-            score = {
-                address = 0x834d,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        skylancr = {
-            score = {
-                address = 0x8023,
-                length = 6,
-                format = "digits",
-                endian = "little"
-            }
-        },
-        galaga = {
-            score = {
-                address = 0x83f8,
-                length = 6,
-                format = "digits",
-                endian = "big"
-            }
-        },
-        choplift = {
-            score = {
-                address = 0xc020,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        ironhors = {
-            score = {
-                address = 0x3275,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        invaders = {
-            score = {
-                address = 0x20f8,
-                length = 2,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        opwolf = {
-            score = {
-                address = 0x10096c,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        mslug = {
-            score = {
-                address = 0x1081b6,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        tmnt = {
-            score = {
-                address = 0x60104,
-                length = 2,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        mwalk = {
-            score = {
-                address = 0xffda40,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        cosmica = {
-            score = {
-                address = 0x4005,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        dino = {
-            score = {
-                address = 0xffb384,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        gng = {
-            score = {
-                address = 0x68,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        bagman = {
-            score = {
-                address = 0x6176,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        btime = {
-            score = {
-                address = 0x2d,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        toki = {
-            score = {
-                address = 0x60000,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        vanguard = {
-            score = {
-                address = 0x1f,
-                length = 3,
-                format = "bcd",
-                endian = "big",
-                multiplier = 10
-            }
-        },
-        satansat = {
-            score = {
-                address = 0x20,
-                length = 2,
-                format = "bcd",
-                endian = "big",
-                multiplier = 10
-            }
-        },
-        shinobi = {
-            score = {
-                address = 0xc71740,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        kicker = {
-            score = {
-                address = 0x2a82,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        bmaster = {
-            score = {
-                address = 0xe74f6,
-                length = 3,
-                format = "bin",
-                endian = "big",
-                multiplier = 100
-            }
-        },
-        kangaroo = {
-            score = {
-                address = 0xe064,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        mappy = {
-            score = {
-                address = 0x2037,
-                length = 2,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
-            }
-        },
-        ripribit = {
-            score = {
-                address = 0x39e820,
-                length = 2,
-                format = "bin",
-                endian = "little"
-            }
-        },
-        porky = {
-            score = {
-                address = 0x1d69,
-                length = 3,
-                format = "bcd",
-                endian = "little",
-                multiplier = 10
-            }
-        },
-        dkongjr = {
-            score = {
-                address = 0x60b2,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        bublbobl = {
-            score = {
-                address = 0xe641,
-                length = 3,
-                format = "bcd",
-                endian = "big",
-                multiplier = 10
-            }
-        },
-        joust = {
-            score = {
-                address = 0xa04c,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        mk = {
-            score = {
-                address = 0x10512a0,
-                length = 8,
-                format = "digits",
-                endian = "little",
-                addressing = "bit"
-            }
-        },
-        sf2 = {
-            score = {
-                address = 0xff8660,
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            }
-        },
-        sf = {
-            score = {
-                address = 0xff86d2,
-                length = 8,
-                format = "digits",
-                endian = "little"
-            }
-        },
-        gyruss = {
-            score = {
-                address = 0x9663,
-                length = 3,
-                format = "bcd",
-                endian = "big"
-            },
-            lives = {
-                address = 0x9600,
-                length = 1,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        narc = {
-            score = {
-                address = 0x100b6d0,
-                length = 4,
-                format = "bcd",
-                endian = "big",
-                addressing = "bit"
-            },
-            lives = {
-                address = 0x100b7e0,
-                length = 1,
-                format = "bcd",
-                endian = "big",
-                addressing = "bit"
-            }
-        },
-        mooncrst = {
-            score = {
-                address = 0x8098,
-                length = 3,
-                format = "bcd",
-                endian = "little"
-            },
-            lives = {
-                address = 0x8097,
-                length = 1,
-                format = "bcd",
-                endian = "big"
-            }
-        },
-        ssriders = {
-            score = {
-                address = 0x104286, --P3
-                length = 4,
-                format = "bcd",
-                endian = "little"
-            },
-            lives = {
-                address = 0x104280, --P3
-                length = 1,
-                format = "bin",
-                endian = "little"
+        }
+    },
+    wow = {
+        players = {
+            [1] = {
+                lives = {
+                    address = 0xD301,
+                    endian = "little",
+                    format = "bcd",
+                    length = 1
+                },
+                score = {
+                    address = 0xD31D,
+                    endian = "big",
+                    format = "bcd",
+                    length = 2,
+                    multiplier = 100
+                }
             }
         }
     }
+}
