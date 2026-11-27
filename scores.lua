@@ -119,7 +119,7 @@ return
                     endian = "little",
                     format = "bin",
                     length = 4,
-                    multiplier = 100
+                    multiplier = 10
                 }
             }
         }
